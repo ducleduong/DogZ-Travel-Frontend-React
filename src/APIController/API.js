@@ -19,6 +19,7 @@ export let endpoints = {
   statistical: "api/statistical/",
   like:"api/like/",
   comment: "api/comment/",
+  sendMail: "api/sendmail/"
 }
 
 const API = axios.create({

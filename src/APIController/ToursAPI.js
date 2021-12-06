@@ -56,6 +56,10 @@ class ToursApi {
         })
     }
 
+    sendEmail = (data,token) => {
+        return API.post(endpoints['sendMail'], data)
+    }
+
 }
 
 const toursApi = new ToursApi()

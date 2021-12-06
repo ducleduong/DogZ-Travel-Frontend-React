@@ -8,7 +8,7 @@ import ListComment from '../../ListCommentComponent/ListComment'
 import { useSelector } from 'react-redux'
 import ReviewForm from '../../ToursComponents/ReviewFormComponent/ReviewForm'
 import { ToastContainer, toast } from 'react-toastify'
-  import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 function NewsDetail({id}) {
     const [news,setNews] = useState({})

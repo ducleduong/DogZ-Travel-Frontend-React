@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form'
 import CurrencyFormat from 'react-currency-format'
 import PaymentConfirm from '../PaymentConfirmComponent/PaymentConfirm'
 
-function OrderTourForm({name,price,price_child,loggedIn,user,tour}) {
+function OrderTourForm({name,price,price_child,loggedIn,user,tour,email,user_name,toast}) {
     const {register, handleSubmit, setValue, reset} = useForm()
     const [total, setTotal] = useState(0)
     const adultValue = useRef()
@@ -18,7 +18,10 @@ function OrderTourForm({name,price,price_child,loggedIn,user,tour}) {
             children: data.children ? Number.parseInt(data.children): 0,
             total,
             user,
-            tour
+            tour,
+            email,
+            user_name,
+            tour_name: name
         })
         reset({
             adult:'',
@@ -111,6 +114,7 @@ function OrderTourForm({name,price,price_child,loggedIn,user,tour}) {
                 total={total}
                 callBack={setConfirm}
                 data={data}
+                toast={toast}
             />}
         </form>
     )

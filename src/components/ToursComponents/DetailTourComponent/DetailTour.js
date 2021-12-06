@@ -12,6 +12,8 @@ import Rating from '@mui/material/Rating'
 import ListComment from '../../ListCommentComponent/ListComment'
 import OrderTourForm from '../OrderTourFormComponent/OrderTourForm'
 import Cookies from 'universal-cookie'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const ratingContext = React.createContext([])
 const responsive = {
@@ -133,11 +135,24 @@ function DetailTour() {
                             price_child={tour.price_children}
                             loggedIn={currentUser.isLoggedIn}
                             user={currentUser.isLoggedIn ? currentUser.user.id: 0}
-                            tour={id}   
+                            tour={id}
+                            email={currentUser.isLoggedIn ? currentUser.user.email: ''}
+                            user_name={currentUser.isLoggedIn ? currentUser.user.last_name: ''}
+                            toast={toast}   
                         />
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="bottom-left"
+                autoClose={3000}
+                hideProgressBar={true}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+            />
         </div>
     )
 }
