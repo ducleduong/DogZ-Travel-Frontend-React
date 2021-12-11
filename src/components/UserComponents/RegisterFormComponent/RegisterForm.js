@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {useForm} from 'react-hook-form'
 import userApi from '../../../APIController/UserAPI'
 import './RegisterForm.css'
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 import NotificationPopup from '../NotificationPopupComponent/NotificationPopup'
 
 
@@ -98,7 +98,7 @@ function RegisterForm() {
                 <input type="submit" id="submit-btn" value="Đăng ký" style={errorInfo ? btnStyle : null}/>
                 
                 <div className="login-context">
-                    <span>Bạn đã có tài khoản ? </span><a href="/login">Đăng nhập</a>
+                    <span>Bạn đã có tài khoản ? </span><Link to="/login">Đăng nhập</Link>
                 </div>
             </form>
             {success && <NotificationPopup action={{type: 'Đăng ký', direct: 'đăng nhập'}}/>}

@@ -7,6 +7,7 @@ import {setUser} from '../../../redux/reducers/UserSlice'
 import NotificationPopup from '../NotificationPopupComponent/NotificationPopup'
 import Cookies from "universal-cookie"
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 
 
 function LoginForm() {
@@ -60,7 +61,7 @@ function LoginForm() {
                 <input type="submit" id="submit-btn" value="Đăng nhập" style={errorInfo ? btnStyle : null}/>
                 
                 <div className="register-context">
-                    <span>Bạn chưa có tài khoản ? </span><a href="/register">Đăng ký</a>
+                    <span>Bạn chưa có tài khoản ? </span><Link to="/register">Đăng ký</Link>
                 </div>
             </form>
             {success && <NotificationPopup action={{type:'Đăng nhập', direct:'trước đó'}}/>}
