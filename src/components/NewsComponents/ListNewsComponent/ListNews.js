@@ -3,8 +3,9 @@ import './ListNews.css'
 import newsApi from '../../../APIController/NewsAPI'
 import NewsItem from '../NewsItemComponent/NewsItem'
 import Pagination from '../../PaginationComponent/Pagination'
-
+import { useTranslation } from 'react-i18next'
 function ListNews() {
+    const {t} = useTranslation()
     const [listNews, setListNews] = useState([])
     const [totalPage, setTotalPage] = useState(1)
     const [filterParams, setFilterParams] = useState({
@@ -31,7 +32,7 @@ function ListNews() {
     return (
         <div className="news-section">
             <div className="title-page news-bg">
-                <h2>Tin tức du lịch</h2>
+                <h2>{t("newsPage.1")}</h2>
             </div>
             <div className="container-center">
                 <div className="list-news-container">

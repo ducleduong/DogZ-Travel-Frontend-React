@@ -1,12 +1,13 @@
 import React, { useRef, useState, useEffect } from "react"
 import './SearchForm.css'
 import DatePicker from "react-datepicker"
-
+import { useTranslation } from 'react-i18next'
 import "react-datepicker/dist/react-datepicker.css"
 
 export default function SearchForm() {
     const [startDate, setStartDate] = useState()
     const [fill,setFill] = useState(false)
+    const {t} = useTranslation()
     const destination = useRef()
     const searchForm = useRef()
     const searchBtn = useRef()
@@ -27,25 +28,25 @@ export default function SearchForm() {
 
     return (
         <form className="search-form" action="/search/" ref={searchForm} autoComplete="off">
-            <label>Tôi muốn đi</label>
+            <label>{t("searchForm.2")}</label>
             <div className="input-group">
-                <input className="input-form radius-10" type="text" name="destination" placeholder="Nhập nơi bạn muốn đi..." ref={destination} />
+                <input className="input-form radius-10" type="text" name="destination" placeholder={t("searchForm.3")} ref={destination} />
             </div>
-            <label>Ngày khởi hành</label>
+            <label>{t("searchForm.4")}</label>
             <div className="input-group">
                 <DatePicker 
                 selected= {startDate}
                 onChange={(date) => setStartDate(date)}
                 className="input-form radius-10"
-                placeholderText="Chọn ngày khởi hành..."
+                placeholderText={t("searchForm.5")}
                 dateFormat="dd/MM/yyyy"
                 id="start"
                 name="start"
                 />
             </div>
-            {fill && <div className='alert-fill'>Vui lòng nhập điểm đến hoặc chọn ngày khởi hành</div>}
+            {fill && <div className='alert-fill'>{t("searchForm.6")}</div>}
             <div className="submit" ref={searchBtn}>
-                <input type="submit" value="Tìm kiếm" id="submit-btn" className="radius-10" />
+                <input type="submit" value={t("search")} id="submit-btn" className="radius-10" />
             </div>
         </form>
     )

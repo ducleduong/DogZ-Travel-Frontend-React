@@ -6,10 +6,11 @@ import { formatDate } from "../../FormatDateComponent/FormatDate"
 import CurrencyFormat from "react-currency-format"
 import Rating from '@mui/material/Rating'
 import { Link } from "react-router-dom"
+import { useTranslation } from 'react-i18next'
 
 
 export default function TourItems({id,name,image,traffic,time,startDate,destination,price,avg_rating,views}){
-
+    const {t} = useTranslation()
     const trafficList = traffic.split(',').map((traff) => traff.trim())
 
     return (
@@ -41,7 +42,7 @@ export default function TourItems({id,name,image,traffic,time,startDate,destinat
                 </div>
                 <div className="tour-item-price-person">
                     <h5><CurrencyFormat value={price} displayType={'text'} thousandSeparator={true}/>đ</h5>
-                    <Link to={`/tours/detail/${id}/`} className="radius-10">Xem chi tiết</Link>
+                    <Link to={`/tours/detail/${id}/`} className="radius-10">{t("seeDetail")}</Link>
                 </div>
             </div>
         </div>

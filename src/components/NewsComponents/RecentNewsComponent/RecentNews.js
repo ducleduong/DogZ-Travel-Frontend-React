@@ -8,10 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faCalendar } from "@fortawesome/free-solid-svg-icons"
 import { formatDate } from "../../FormatDateComponent/FormatDate"
 import { responsive } from "../../../redux/constants/responsive"
-
+import { useTranslation } from 'react-i18next'
 export default function RecentNews() {
     const [recentNews, setRecentNews] = useState([])
-
+    const {t} = useTranslation()
     useEffect(() => {
         const getData = async () => {
             const res = await newsApi.getNewsRecent()
@@ -25,7 +25,7 @@ export default function RecentNews() {
         <div className="recent-news-section">
             <div className="background-flow">
                 <div className="title">
-                    <h2 className="main-title">Tin tức mới nhất</h2>
+                    <h2 className="main-title">{t("latestNews")}</h2>
                 </div>
                 <div className="news-list">
                     <Carousel 
@@ -48,7 +48,7 @@ export default function RecentNews() {
                                         </div>
                                         <div className="news-reaction">
                                             <h5 className="reaction"><FontAwesomeIcon icon={faEye}/> {news.views}</h5>
-                                            <a href={`/news/new-detail/${news.id}`} className="learn-more radius-10">Xem chi tiết</a>
+                                            <a href={`/news/new-detail/${news.id}`} className="learn-more radius-10">{t("seeDetail")}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@ export default function RecentNews() {
                 </div>
 
                 <div className="all-news">
-                    <a className="all-news-btn radius-10" href="/news">Xem tất cả</a>
+                    <a className="all-news-btn radius-10" href="/news">{t("seeAll")}</a>
                 </div>
             </div>
         </div>

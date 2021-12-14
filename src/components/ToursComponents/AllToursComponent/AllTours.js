@@ -6,8 +6,10 @@ import Pagination from "../../PaginationComponent/Pagination"
 import toursApi from "../../../APIController/ToursAPI"
 import Loader from "../../LoaderComponent/Loader"
 import FilteringList from "../FilteringListComponent/FilteringList"
+import { useTranslation } from 'react-i18next'
 
 export default function AllTours() {
+    const {t} = useTranslation()
     const [tours, setTours] = useState([])
     const [loading, setLoading] = useState(true)
     const [totalPage, setTotalPage] = useState(1)
@@ -143,12 +145,12 @@ export default function AllTours() {
                 <div className="container-items">
                     <div className="filter-section">
                         <div className="filter-header">
-                            <h4>Tìm kiếm Tour</h4>
+                            <h4>{t("filter.1")}</h4>
                         </div>
                         <div className="filter-area radius-bot-10">
                             <FilteringList 
                                 type={{
-                                    title: 'Loại Tour',
+                                    title: t("filter.2"),
                                     endpoint: 'category',
                                     icon: 'category'
                                 }}
@@ -157,7 +159,7 @@ export default function AllTours() {
 
                             <FilteringList 
                                 type={{
-                                    title: 'Địa điểm',
+                                    title: t("filter.3"),
                                     endpoint: 'location',
                                     icon:'location'
                                 }}
@@ -166,7 +168,7 @@ export default function AllTours() {
 
                             <FilteringList 
                                 type={{
-                                    title: 'Giá',
+                                    title: t("filter.4"),
                                     items: [
                                         {id:0, name: 'Tất cả'},
                                         {id:'1000000-3000000', name: '1,000,000đ - 3,000,000đ'},
@@ -181,7 +183,7 @@ export default function AllTours() {
 
                             <FilteringList 
                                 type={{
-                                    title: 'Phương tiện',
+                                    title: t("filter.5"),
                                     items: [
                                         {id:'Ô tô', name: 'Ô tô'},
                                         {id:'Tàu thủy', name:'Tàu thủy'},
@@ -200,10 +202,10 @@ export default function AllTours() {
                         <div className="sort-section">
                             <ButtonSwitch 
                                 listButton={[
-                                    {value:'Sắp xếp mặc định', id:''},
-                                    {value: 'Giá cao đến thấp', id:'-price'},
-                                    {value: 'Giá thấp đến cao', id:'price'}, 
-                                    {value: 'Nhiều lượt xem nhất', id:'-views'}
+                                    {value: t("filter.6"), id:''},
+                                    {value: t("filter.7"), id:'-price'},
+                                    {value: t("filter.8"), id:'price'}, 
+                                    {value: t("filter.9"), id:'-views'}
                                 ]}
                                 handleSort={handleSort}
                             />

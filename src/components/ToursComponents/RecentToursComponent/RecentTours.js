@@ -5,11 +5,11 @@ import { faUserClock, faMapMarkerAlt, faCar } from "@fortawesome/free-solid-svg-
 import toursApi from '../../../APIController/ToursAPI'
 import CurrencyFormat from 'react-currency-format'
 import { Link } from "react-router-dom"
-
+import { useTranslation } from 'react-i18next'
 export default function RecentTours(){
     
     const [recentTours, setRecentTours] = useState([])
-
+    const {t} = useTranslation()
     useEffect(() => {
 
         const getData = async () => {
@@ -24,7 +24,7 @@ export default function RecentTours(){
     return (
         <div className="recent-tours-section">
             <div className="title">
-                <h2 className="main-title">Tour mới nhất</h2>
+                <h2 className="main-title">{t("latestTour")}</h2>
             </div>
 
             <div className="list-recent-tour">
@@ -38,9 +38,9 @@ export default function RecentTours(){
                             </div>
                             <div className="tour-details radius-10">
                                 <p><strong>{tour.name}</strong></p>
-                                <p><FontAwesomeIcon icon={faUserClock}/><strong> Thời gian:</strong> {tour.time}</p>
-                                <p><FontAwesomeIcon icon={faCar}/><strong> Phương tiện:</strong> {tour.traffic}</p>
-                                <p><strong><Link to={`/tours/detail/${tour.id}/`} className="detail-btn radius-10">Xem chi tiết</Link></strong></p>
+                                <p><FontAwesomeIcon icon={faUserClock}/><strong> {t("duration")}: </strong> {tour.time}</p>
+                                <p><FontAwesomeIcon icon={faCar}/><strong> {t("vehicle")}: </strong> {tour.traffic}</p>
+                                <p><strong><Link to={`/tours/detail/${tour.id}/`} className="detail-btn radius-10">{t("seeDetail")}</Link></strong></p>
                             </div>
                         </div>          
                     ))
@@ -48,7 +48,7 @@ export default function RecentTours(){
             </div>
 
             <div className="all-tour">
-                <Link className="all-tour-btn radius-10" to="/tours">Xem tất cả</Link>
+                <Link className="all-tour-btn radius-10" to="/tours">{t("seeAll")}</Link>
             </div>
         </div>
     )

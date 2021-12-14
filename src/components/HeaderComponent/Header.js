@@ -5,11 +5,11 @@ import { faPhone, faEnvelope, faSignInAlt, faUserPlus, faSignOutAlt, faCog, faCa
 import { useSelector, useDispatch } from 'react-redux'
 import {logout} from '../../redux/reducers/UserSlice'
 import { Link } from "react-router-dom"
-
+import { useTranslation } from 'react-i18next'
 function Header() {
     const currentUser = useSelector((state) => state.user)
     const dispatch = useDispatch()
-
+    const {t} = useTranslation()
     const handleLogout = () => {
         dispatch(logout())
     }
@@ -35,7 +35,7 @@ function Header() {
                                 <div className="dropdown-menu-list">
                                     <div className="dropdown-item radius-top-10">
                                         <Link to="/user-detail" >
-                                            <FontAwesomeIcon icon={faUserCog}/> Thông tin cá nhân
+                                            <FontAwesomeIcon icon={faUserCog}/> {t("personInfo")}
                                         </Link>
                                     </div>
                                     {
@@ -45,15 +45,15 @@ function Header() {
                                         </div>
                                     }
                                     <div className="dropdown-item radius-bot-10">
-                                        <span onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt}/> Đăng xuất</span>
+                                        <span onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt}/> {t("logout")}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     : <div className="right-items-header">
-                        <Link to="/login"><FontAwesomeIcon icon={faSignInAlt}/> Đăng nhập</Link>
-                        <Link to="/register"><FontAwesomeIcon icon={faUserPlus}/> Đăng ký</Link>
+                        <Link to="/login"><FontAwesomeIcon icon={faSignInAlt}/> {t("login")}</Link>
+                        <Link to="/register"><FontAwesomeIcon icon={faUserPlus}/> {t("register")}</Link>
                     </div>
                 }
                 

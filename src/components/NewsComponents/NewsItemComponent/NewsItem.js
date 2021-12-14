@@ -3,8 +3,10 @@ import './NewsItem.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faCommentDots } from "@fortawesome/free-solid-svg-icons"
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 function NewsItem({news}) {
+    const {t} = useTranslation()
     return (
         <div className="news-item-section">
             <div className="news-item-content radius-top-10">
@@ -15,7 +17,7 @@ function NewsItem({news}) {
                     <Link to={`/news/detail/${news.id}`} className="news-item-title">{news.name}</Link>
                     <div className="news-item-author">
                         <p className="author-name">{news.date_add.split('-').reverse().join('-')}</p>
-                        <p>Đăng bởi: <span className="author-name">{news.user.username}</span></p>
+                        <p>{t("newsPage.2")}: <span className="author-name">{news.user.username}</span></p>
                     </div>
                 </div>
             </div>
@@ -26,7 +28,7 @@ function NewsItem({news}) {
                     <div><FontAwesomeIcon icon={faCommentDots} className="icon"/> {news.comment}</div>
                 </div>
                 <div className="news-item-learn-more">
-                    <Link to={`/news/detail/${news.id}`} ><button id="news-item-learn-more-btn" className="radius-10">Xem chi tiết</button></Link>
+                    <Link to={`/news/detail/${news.id}`} ><button id="news-item-learn-more-btn" className="radius-10">{t("newsPage.3")}</button></Link>
                 </div>
             </div>
         </div>
