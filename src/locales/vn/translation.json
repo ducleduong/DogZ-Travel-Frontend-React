@@ -79,5 +79,15 @@
         "1": "Tin tức du lịch",
         "2": "Đăng bởi",
         "3": "Xem chi tiết"
+    },
+    "profilePage": {
+        "1": "Chỉnh sửa trang cá nhân",
+        "2": "Đổi mật khẩu",
+        "3": "THÔNG TIN CÁ NHÂN",
+        "4": "LỊCH SỬ ĐẶT TOUR",
+        "5": "Họ và tên",
+        "6": "Địa chỉ",
+        "7": "Số điện thoại",
+        "8": "Chưa cập nhật"
     }
 }

@@ -1,29 +1,33 @@
-import React from 'react'
+import React, {Suspense} from 'react'
+
 import './App.css'
+import { faArrowUp} from "@fortawesome/free-solid-svg-icons"
 import HomePage from './pages/HomePage'
 import ToursPage from './pages/ToursPage'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import BackToTop from "react-back-to-top-button"
+
 import Header from './components/HeaderComponent/Header'
 import Footer from './components/FooterComponent/Footer'
 import NavBar from './components/NavBarComponent/NavBar'
 import PageNotFound from './components/PageNotFoundComponent/PageNotFound'
-import LoginPage from './pages/LoginPage'
-import TourDetailPage from './pages/TourDetailPage'
-import SearchResultPage from './pages/SearchResultPage'
 import NavFooter from './components/NavFooterComponent/NavFooter'
 import CommingSoon from './components/CommingSoonComponent/CommingSoon'
-import UserDetailPage from './pages/UserDetailPage'
-import BackToTop from "react-back-to-top-button"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUp} from "@fortawesome/free-solid-svg-icons"
-import StatisticalPage from './pages/StatisticalPage'
-import NewsPage from './pages/NewsPage'
-import NewsDetailPage from './pages/NewsDetailPage'
+
+const LoginPage = React.lazy(() => import('./pages/LoginPage'))
+const TourDetailPage = React.lazy(() => import('./pages/TourDetailPage'))
+const SearchResultPage = React.lazy(() => import('./pages/SearchResultPage'))
+const UserDetailPage = React.lazy(() => import('./pages/UserDetailPage'))
+const StatisticalPage = React.lazy(() => import('./pages/StatisticalPage'))
+const NewsPage = React.lazy(() => import('./pages/NewsPage'))
+const NewsDetailPage = React.lazy(() => import('./pages/NewsDetailPage'))
 
 function App() {
 
   return (
-    <Router>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Router>
       <div className="App">
           <Header />
           <NavBar/>
@@ -77,6 +81,7 @@ function App() {
 
       </div>
     </Router>
+    </Suspense>
   );
 }
 

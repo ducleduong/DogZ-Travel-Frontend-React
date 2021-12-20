@@ -79,5 +79,16 @@
         "1": "Travel News",
         "2": "Posted by",
         "3": "See details"
+    },
+    "profilePage": {
+        "1": "Edit profile",
+        "2": "Change password",
+        "3": "INFORMATION",
+        "4": "BOOKING HISTORY",
+        "5": "Full name",
+        "6": "Address",
+        "7": "Phone number",
+        "8": "Not update"
+
     }
 }

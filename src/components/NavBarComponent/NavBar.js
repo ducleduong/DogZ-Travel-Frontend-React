@@ -21,19 +21,20 @@ function NavBar() {
                         <li><Link to="/services"><FontAwesomeIcon icon={faUtensils}/> {t("navbar.2")}</Link></li>
                         <li><Link to="/suggestion"><FontAwesomeIcon icon={faPen}/> {t("navbar.3")}</Link></li>
                         <li>
-                            <button onClick={() => i18n.changeLanguage('vn')}>
+                            
+                            <button className={"change-btn " + (i18n.language === 'vn' && "btn-active")} onClick={() => i18n.changeLanguage('vn')}>
                                 <ReactCountryFlag
                                     countryCode="VN"
                                     svg
                                 />  
-                                <span>VN</span>
+                                <span className="inner-text">VN</span>
                             </button>
-                            <button onClick={() => i18n.changeLanguage('en')}>
+                            <button className={"change-btn " + (i18n.language === 'en' && "btn-active")} onClick={() => i18n.changeLanguage('en')}>
                                 <ReactCountryFlag
                                     countryCode="US"
                                     svg
                                 />  
-                                <span>EN</span>
+                                <span className="inner-text">EN</span>
                             </button>
                         </li>
 

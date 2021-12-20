@@ -15,7 +15,7 @@ import ChangeAvatarForm from '../ChangeAvatarFormComponent/ChangeAvatarForm'
 import EditProfile from '../EditProfileComponent/EditProfile'
 import Loader from '../../LoaderComponent/Loader'
 import ChangePasswordForm from '../ChangePasswordFormComponent/ChangePasswordForm'
-
+import { useTranslation } from 'react-i18next'
 function UserDetail() {
     const [value, setValue] = useState('1')
     const currentUser = useSelector((state) => state.user)
@@ -25,7 +25,7 @@ function UserDetail() {
     const [changePassForm, setChangePassForm] = useState(false)
     const [loading, setLoading] = useState(true)
     const cookies = new Cookies()
-
+    const {t} = useTranslation()
     const handleChange = (event, newValue) => {
         setValue(newValue)
     }
@@ -64,12 +64,12 @@ function UserDetail() {
                             id="edit-profile-btn" 
                             className="radius-10"
                             onClick={() => setEditForm(true)}
-                        >Chỉnh sửa trang cá nhân</button>
+                        >{t("profilePage.1")}</button>
                         <button 
                             id="edit-profile-btn" 
                             className="radius-10"
                             onClick={() => setChangePassForm(true)}
-                        >Đổi mật khẩu</button>
+                        >{t("profilePage.2")}</button>
                     </div>
                 </div>
 
@@ -80,8 +80,8 @@ function UserDetail() {
                             onChange={handleChange}
                             variant='fullWidth'
                         >
-                            <Tab label="Thông tin cá nhân" value="1" />
-                            <Tab label="Lịch sử đặt Tour" value="2" />
+                            <Tab label={t("profilePage.3")} value="1" />
+                            <Tab label={t("profilePage.4")} value="2" />
                         </Tabs>
 
                         <TabPanel value="1"><UserInfo user={user}/></TabPanel>

@@ -47,3 +47,19 @@
     color: #2f7af8;
     border-bottom: 3px solid #2f7af8;
 }
+.change-btn {
+    display: inline-flex;
+    align-items: center;
+    border: 0;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.change-btn .inner-text {
+    margin-left: 2px;
+    font-weight: 600;
+}
+.btn-active {
+    border: 2px solid #2F7AF8;
+    background: #fff;
+}
