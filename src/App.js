@@ -14,19 +14,20 @@ import NavBar from './components/NavBarComponent/NavBar'
 import PageNotFound from './components/PageNotFoundComponent/PageNotFound'
 import NavFooter from './components/NavFooterComponent/NavFooter'
 import CommingSoon from './components/CommingSoonComponent/CommingSoon'
+import Loader from './components/LoaderComponent/Loader'
 
-const LoginPage = React.lazy(() => import('./pages/LoginPage'))
-const TourDetailPage = React.lazy(() => import('./pages/TourDetailPage'))
-const SearchResultPage = React.lazy(() => import('./pages/SearchResultPage'))
-const UserDetailPage = React.lazy(() => import('./pages/UserDetailPage'))
-const StatisticalPage = React.lazy(() => import('./pages/StatisticalPage'))
-const NewsPage = React.lazy(() => import('./pages/NewsPage'))
-const NewsDetailPage = React.lazy(() => import('./pages/NewsDetailPage'))
+import LoginPage from './pages/LoginPage'
+import TourDetailPage from './pages/TourDetailPage'
+import SearchResultPage from './pages/SearchResultPage'
+import UserDetailPage from './pages/UserDetailPage'
+import StatisticalPage from './pages/StatisticalPage'
+import NewsPage from './pages/NewsPage'
+import NewsDetailPage from './pages/NewsDetailPage'
 
 function App() {
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <Router>
       <div className="App">
           <Header />

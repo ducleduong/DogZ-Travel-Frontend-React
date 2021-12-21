@@ -144,7 +144,7 @@ function DetailTour() {
                 </div>
             </div>
             <ToastContainer
-                position="bottom-left"
+                position="top-right"
                 autoClose={3000}
                 hideProgressBar={true}
                 newestOnTop={false}

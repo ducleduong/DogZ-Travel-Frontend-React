@@ -28,7 +28,7 @@ function Header() {
                             src={currentUser.user.avatar_url}
                             alt="user-avatar"
                         />
-                        <span>Xin chào, {currentUser.user.last_name}</span>
+                        <span>{t("navbar.5")}, {currentUser.user.last_name}</span>
                         <div className="setting-user">
                             <FontAwesomeIcon icon={faCog}/> <FontAwesomeIcon icon={faCaretDown}/>
                             <div className="dropdown-menu radius-10">

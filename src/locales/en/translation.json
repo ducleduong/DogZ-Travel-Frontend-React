@@ -3,7 +3,8 @@
         "1": "NEWS",
         "2": "SERVICES",
         "3": "CONTACT",
-        "4": "HOME"
+        "4": "HOME",
+        "5": "Welcome"
     },
     "register": "Register",
     "login": "Login",
